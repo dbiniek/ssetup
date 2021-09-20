@@ -31,7 +31,7 @@ sed "s/20[0-9][0-9]\+/$serial/g" /var/named/$1.db
 cp /etc/named.conf{,-$(date +%s).bak}
 cat << EOF >> /etc/named.conf
 
-zone "davidbiniek.com" IN {
+zone "$1" IN {
 
          type master;
 
@@ -44,5 +44,6 @@ EOF
 #check zone and rndc
 named-checkzone $1 /var/named/$1.db
 rndc reload
+
 ##certbot
 certbot -d $1
