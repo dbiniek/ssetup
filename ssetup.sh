@@ -46,4 +46,4 @@ named-checkzone $1 /var/named/$1.db
 rndc reload
 
 ##certbot
-certbot -d $1
+certbot --nginx -n -d $1
