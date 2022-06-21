@@ -18,6 +18,10 @@
 ## USAGE
 # Takes a domain name as input
 
+## Be safe, fail early
+## https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -euxo pipefail
+
 ## Create directories and move skeleton files into place
 mkdir -p /var/www/$1/{html,log}
 rsync -aP /var/www/html/ /var/www/$1/html/
